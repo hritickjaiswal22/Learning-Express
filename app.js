@@ -1,9 +1,12 @@
 const express = require("express");
+const path = require("path");
 
 const app = express();
 
+app.use(express.static("./public"));
+
 app.get("/", (req, res) => {
-  res.send("Home Page");
+  res.sendFile(path.join(__dirname, "./servedWebsite/index.html"));
 });
 
 app.get("/about", (req, res) => {
